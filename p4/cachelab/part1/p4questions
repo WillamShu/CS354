@@ -1,0 +1,115 @@
+Name: William Shu
+Section: 002
+
+Assignment 4 questions.
+Do NOT remove the questions from this file.
+Please write and indent your answers in this file.
+
+For ALL cache simulations, use a capacity of 16384 bytes, and set associativity of 1, for both
+the I-cache and the D-cache.
+
+Sample command line:
+/p/course/cs354-common/public/cache/pin -injection child -t /p/course/cs354-common/public/cache/source/tools/Memory/obj-ia32/allcache.so -is 16384 -ia 1 -ib 64 -ds 16384 -da 1 -db <block-size> -- yourexe
+
+Replace "yourexe" with the name of your executable.
+
+-------
+cache1D
+-------
+
+1.1 What do you get from running pin with a block size of 4 bytes? (Pasting the output here is fine!)
+Instruction cache misses:   720
+Instruction cache references:   151863
+Data cache misses:    18660
+Data cache references:    103140
+
+
+1.2 Calculate the hit ratio for the D-cache with a block size of 4 bytes?
+
+Data cache hit ratio = 0.981966
+
+2.1 What do you get from running pin with a block size of 32 bytes? (Pasting the output here is fine!)
+Instruction cache misses:   705
+Instruction cache references:   151863
+Data cache misses:    3590
+Data cache references:    103111
+
+2.2 Calculate the hit ratio for the D-cache with a block size of 32 bytes?
+
+Data cache hit ratio = 0.965183
+
+3.1 What do you get from running pin with a block size of 64 bytes? (Pasting the output here is fine!)
+
+Instruction cache misses:   724
+Instruction cache references:   16595381
+Data cache misses:    1507450
+Data cache references:    12045651
+
+3.2 Calculate the hit ratio for the D-cache with a block size of 64 bytes?
+
+Data cache hit ratio = 0.874855
+
+4. (to be answered without running pin)
+For this question, assume that the 100,000 elements long integer array that you allocated starts at address 0x50000000 in memory,
+the size of an integer is 4 bytes  and the D-cache is initially empty.
+As you READ the integers in the array one-by-one, starting at index 0,
+how many D-cache misses will you see for reading the first 40 integers when the cache block size is:
+
+a) 4 bytes: 39.2786
+
+b) 32 bytes: 38.60732
+
+c) 64 bytes: 34.9942
+
+5. Based on simulations you ran for questions 1, 2 and 3, which block size is best for the D-cache?
+Why? In what way does the block size affect the hit ratio for this program?
+
+4 bytes is the best. Since it has the highest hit ratio.
+
+
+-----------
+cache2Drows
+-----------
+
+6.1 What do you get from running pin with a block size of 64 bytes? (Pasting the output here is fine!)
+
+Instruction cache misses:   721
+Instruction cache references:   16612881
+Data cache misses:    107150
+Data cache references:    12058130
+
+6.2 Calculate the hit ratio for the D-cache with a block size of 64 bytes?
+
+Data cache hit ratio = 0.9111388
+
+-----------
+cache2Dcols
+-----------
+
+7.1 What do you get from running pin with a block size of 64 bytes? (Pasting the output here is fine!)
+
+Instruction cache misses:   724
+Instruction cache references:   16595381
+Data cache misses:    1507450
+Data cache references:    12045651
+
+7.2 Calculate the hit ratio for the D-cache with a block size of 64 bytes?
+
+Data cache hit ratio = 0.874855
+
+
+-----------------------------------------
+Comparison of cache2Drows and cache2Dcols
+-----------------------------------------
+8. (to be answered without running pin)
+For this question, assume that the 2-D integer array you allocated starts at address 0x40000000 in memory,
+the size of an integer is 4 bytes, D-cache block size is 64 bytes and the D-cache is initially empty.
+As you READ the integers in the 2-D array one-by-one, starting with element array[0,0],
+how many D-cache misses will you see for reading the first 10 integers in case of:
+
+a) cache2Drows: 9.11
+
+b) cache2Dcols: 8.74
+
+9. Compare the performance (hit ratios) of the D-cache for the 2 programs based on simulations of questions 6 and 7.
+Explain any difference/ lack of difference that you observe. Your answer should be in the form of "There is a difference/no difference BECAUSE ____".

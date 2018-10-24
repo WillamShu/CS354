@@ -1,0 +1,18 @@
+cc -DBIGARRAY_MULTIPLIER=1 -Wall -Werror -Wno-unknown-pragmas -fno-stack-protector -DTARGET_IA32E -DHOST_IA32E -fPIC -DTARGET_LINUX  -I../../../source/include/pin -I../../../source/include/pin/gen -I../../../extras/components/include -I../../../extras/xed2-intel64/include -I../../../source/tools/InstLib -O3 -fomit-frame-pointer -fno-strict-aliasing   -c -o obj-intel64/cache.o cache.c
+In file included from cache.c:11:
+cache.h:12:18: error: vector: No such file or directory
+cc1: warnings being treated as errors
+In file included from cache.c:11:
+cache.h:24: error: type defaults to ‘int’ in declaration of ‘std’
+cache.h:24: error: expected ‘;’, ‘,’ or ‘)’ before ‘:’ token
+cache.c: In function ‘create_cache_struct’:
+cache.c:72: error: format ‘%d’ expects type ‘int’, but argument 2 has type ‘long unsigned int’
+cache.c: In function ‘determine_address_widths’:
+cache.c:217: error: format ‘%d’ expects type ‘int’, but argument 2 has type ‘long unsigned int’
+cache.c:221: error: format ‘%d’ expects type ‘int’, but argument 2 has type ‘long unsigned int’
+cache.c: In function ‘do_reference’:
+cache.c:257: error: unused variable ‘index_mask’
+cache.c: At top level:
+cache.c:332: error: type defaults to ‘int’ in declaration of ‘std’
+cache.c:332: error: expected ‘;’, ‘,’ or ‘)’ before ‘:’ token
+make: *** [obj-intel64/cache.o] Error 1

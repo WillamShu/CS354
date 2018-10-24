@@ -1,0 +1,15 @@
+CC     = g++
+CFLAGS = -Wall -m32 -O3
+LIBDIR = .
+LIBS   = -lcache
+
+cachesim:		cachesim.c
+			$(CC) -c -o cachesim.o cachesim.c $(CFLAGS)
+cache:			cache.c
+			$(CC) -shared -o libcache.so cache.c -fPIC $(CFLAGS)
+trace_file_parser:	trace_file_parser.c
+			$(CC) -c -o trace_file_parser.o trace_file_parser.c $(CFLAGS)
+all:			cachesim cache trace_file_parser
+			$(CC) -o cachesim -L$(LIBDIR) cachesim.o trace_file_parser.o $(CFLAGS) $(LIBS)
+clean:			
+			rm *.so *.o cachesim
